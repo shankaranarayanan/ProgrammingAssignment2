@@ -1,0 +1,16 @@
+{
+    "contents" : "#It provides four functions- create matrix, retrieve matrix, \n# create inverse of matrix and retrieve inverse of matrix.\nmakeCacheMatrix <- function(x = matrix()) {\n  inv <- NULL\n  setMatrix <- function(y) {\n    x <<- y\n    inv <<- NULL\n  }\n  \n  getMatrix <- function() x\n  setInvMatrix <- function(z) inv <<- z\n  getInvMatrix <- function() inv\n  \n  list(setMatrix = setMatrix, getMatrix = getMatrix ,\n       setInvMatrix = setInvMatrix, getInvMatrix = getInvMatrix)\n\n}\n\n\n# It provides inverse of a matrix. The inversion is looked up in the cache.\n# If there is no data in the cache, it is computed, put into the cache and returned.\ncacheSolve <- function(x, ...) {\n        ## Return a matrix that is the inverse of 'x'\n  invMatrix <- x$getInvMatrix()\n  if(!is.null(invMatrix)) {\n    print(\"Obtained the inverse of matrix from cache\")\n    return(invMatrix)\n  }\n  \n  data <- x$getMatrix()\n  invMatrix <- solve(data)\n  x$setInvMatrix(invMatrix)\n  invMatrix\n}",
+    "created" : 1424276477738.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1686159007",
+    "id" : "92D9DF7F",
+    "lastKnownWriteTime" : 1424278250,
+    "path" : "H:/DataScienceWorkspace/ProgrammingAssignment2/cachematrix.R",
+    "project_path" : "cachematrix.R",
+    "properties" : {
+    },
+    "source_on_save" : false,
+    "type" : "r_source"
+}
